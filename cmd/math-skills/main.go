@@ -21,6 +21,9 @@ func main() {
 
 	variance := calculateSampleVariance(numbers)
 	fmt.Println("Variance: ", variance)
+
+	standardDeviation := calculateStandardDeviation(numbers)
+	fmt.Println("Standard Deviation: ", standardDeviation)
 }
 
 func readContent(path string) []int {
@@ -92,4 +95,8 @@ func calculateSampleVariance(numbers []int) int {
 	divisor := len(numbers) - 1
 	// Integer rounding logic: (sum + (divisor/2)) / divisor
 	return (sumSquaredDiffs + (divisor / 2)) / divisor
+}
+
+func calculateStandardDeviation(numbers []int) int {
+	return int(math.Round(math.Sqrt(float64(calculateSampleVariance(numbers))))) // return the standard deviation
 }
