@@ -5,6 +5,7 @@ A Go program that reads numbers from a file and parses them into a slice for pro
 ## Prerequisites
 
 - Go 1.25+
+- Make (optional)
 
 ## Usage
 
@@ -25,11 +26,13 @@ A Go program that reads numbers from a file and parses them into a slice for pro
    go run ./cmd/math-skills data.txt
    ```
 
-## Testing
+## Make Commands
 
 ```bash
-cd cmd/math-skills
-go test -v
+make build  # Compile binary to bin/
+make run    # Build and run with data.txt
+make test   # Run all tests
+make clean  # Remove build artifacts
 ```
 
 ## Project Structure
@@ -40,5 +43,6 @@ math-skills/
 │   ├── main.go       # Main program
 │   └── main_test.go  # Tests
 ├── data.txt          # Input file
+├── Makefile          # Build automation
 └── go.mod
 ```
