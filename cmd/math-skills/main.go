@@ -10,7 +10,9 @@ import (
 
 func main() {
 	numbers := readContent("../../data.txt")
-	fmt.Println("Numbers: ", numbers)
+
+	average := calculateAverage(numbers)
+	fmt.Println("Average: ", average)
 }
 
 func readContent(path string) []int {
@@ -38,4 +40,13 @@ func readContent(path string) []int {
 	}
 	// return the numbers as a slice of integers
 	return numbers
+}
+
+func calculateAverage(numbers []int) int {
+	// split the content into lines
+	total := 0
+	for _, num := range numbers {
+		total += num
+	}
+	return (total + (len(numbers) / 2)) / len(numbers) // round up to the nearest integer
 }
