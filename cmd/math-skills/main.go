@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -13,6 +14,9 @@ func main() {
 
 	average := calculateAverage(numbers)
 	fmt.Println("Average: ", average)
+
+	median := calculateMedian(numbers)
+	fmt.Println("Median: ", median)
 }
 
 func readContent(path string) []int {
@@ -49,4 +53,16 @@ func calculateAverage(numbers []int) int {
 		total += num
 	}
 	return (total + (len(numbers) / 2)) / len(numbers) // round up to the nearest integer
+}
+
+func calculateMedian(numbers []int) int {
+	temp := make([]int, len(numbers)) // create a temporary slice to sort the numbers
+	copy(temp, numbers)               // copy the numbers to the temporary slice
+	slices.Sort(temp)                 // sort the numbers
+	mid := len(temp) / 2              // get the middle index
+	if len(temp)%2 == 0 {
+		sum := temp[mid-1] + temp[mid] // get the sum of the two middle numbers
+		return (sum + 1) / 2           // round up to the nearest integer
+	}
+	return temp[mid] // return the middle number
 }
