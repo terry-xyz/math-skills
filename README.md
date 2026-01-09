@@ -1,5 +1,12 @@
  <h1 align="center">Math Skills</h1>
 
+[![Go](https://img.shields.io/badge/Go-1.21-blue.svg)](https://golang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/terry-xyz/math-skills/workflows/CI/badge.svg)](https://github.com/terry-xyz/math-skills/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/terry-xyz/math-skills)](https://goreportcard.com/report/github.com/terry-xyz/math-skills)
+[![Tests](https://img.shields.io/badge/Tests-Passing-green.svg)](#testing)
+[![Makefile](https://img.shields.io/badge/Build-Makefile-orange.svg)](#testing)
+
 A Go program that reads numbers from a file and parses them into a slice for processing.
 
 ## Prerequisites
