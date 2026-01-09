@@ -11,7 +11,10 @@ import (
 )
 
 func main() {
-	numbers := readContent("../../data.txt")
+	if !(len(os.Args) == 2) {
+		log.Fatal("usage: go run main.go <filename>")
+	}
+	numbers := readContent(os.Args[1])
 
 	average := calculateAverage(numbers)
 	fmt.Println("Average: ", average)
@@ -45,7 +48,6 @@ func readContent(path string) []int {
 		num, err := strconv.Atoi(line) // convert the line to an integer
 		if err != nil {
 			log.Fatalf("failed to convert string to int: %v", err)
-			os.Exit(1)
 		}
 		numbers = append(numbers, num)
 	}
@@ -87,7 +89,6 @@ func calculateSampleVariance(numbers []int) int {
 		squared := diff * diff // calculate the squared difference
 		if sumSquaredDiffs > math.MaxInt64-squared {
 			log.Fatalf("Data overflow: The sum of squares is too large for an integer.")
-			os.Exit(1)
 		}
 		sumSquaredDiffs += squared // add the squared difference to the sum of squared differences
 	}
