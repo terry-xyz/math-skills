@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"slices"
 	"strconv"
@@ -17,6 +18,9 @@ func main() {
 
 	median := calculateMedian(numbers)
 	fmt.Println("Median: ", median)
+
+	variance := calculateSampleVariance(numbers)
+	fmt.Println("Variance: ", variance)
 }
 
 func readContent(path string) []int {
@@ -65,4 +69,27 @@ func calculateMedian(numbers []int) int {
 		return (sum + 1) / 2           // round up to the nearest integer
 	}
 	return temp[mid] // return the middle number
+}
+
+func calculateSampleVariance(numbers []int) int {
+
+	if len(numbers) < 2 {
+		return 0 // Variance requires at least 2 numbers
+	}
+
+	average := calculateAverage(numbers) // calculate the average of the numbers
+	sumSquaredDiffs := 0
+	for _, num := range numbers {
+		diff := num - average  // calculate the difference between the number and the average
+		squared := diff * diff // calculate the squared difference
+		if sumSquaredDiffs > math.MaxInt64-squared {
+			log.Fatalf("Data overflow: The sum of squares is too large for an integer.")
+			os.Exit(1)
+		}
+		sumSquaredDiffs += squared // add the squared difference to the sum of squared differences
+	}
+
+	divisor := len(numbers) - 1
+	// Integer rounding logic: (sum + (divisor/2)) / divisor
+	return (sumSquaredDiffs + (divisor / 2)) / divisor
 }
