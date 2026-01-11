@@ -17,16 +17,16 @@ func main() {
 	numbers := readContent(os.Args[1])
 
 	average := calculateAverage(numbers)
-	fmt.Println("Average: ", average)
+	fmt.Println("Average:", average)
 
 	median := calculateMedian(numbers)
-	fmt.Println("Median: ", median)
+	fmt.Println("Median:", median)
 
-	variance := calculateSampleVariance(numbers)
-	fmt.Println("Variance: ", variance)
+	variance := calculateVariance(numbers)
+	fmt.Println("Variance:", variance)
 
 	standardDeviation := calculateStandardDeviation(numbers)
-	fmt.Println("Standard Deviation: ", standardDeviation)
+	fmt.Println("Standard Deviation:", standardDeviation)
 }
 
 func readContent(path string) []int {
@@ -76,9 +76,9 @@ func calculateMedian(numbers []int) int {
 	return temp[mid] // return the middle number
 }
 
-func calculateSampleVariance(numbers []int) int {
+func calculateVariance(numbers []int) int {
 
-	if len(numbers) < 2 {
+	if len(numbers) < 1 {
 		return 0 // Variance requires at least 2 numbers
 	}
 
@@ -93,11 +93,11 @@ func calculateSampleVariance(numbers []int) int {
 		sumSquaredDiffs += squared // add the squared difference to the sum of squared differences
 	}
 
-	divisor := len(numbers) - 1
+	divisor := len(numbers)
 	// Integer rounding logic: (sum + (divisor/2)) / divisor
 	return (sumSquaredDiffs + (divisor / 2)) / divisor
 }
 
 func calculateStandardDeviation(numbers []int) int {
-	return int(math.Round(math.Sqrt(float64(calculateSampleVariance(numbers))))) // return the standard deviation
+	return int(math.Round(math.Sqrt(float64(calculateVariance(numbers))))) // return the standard deviation
 }
