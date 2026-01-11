@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### [1.0.1](https://github.com/blackrosesxyz/math-skills/compare/v1.0.0...v1.0.1) (2026-01-11)
+
+
+### Documentation
+
+* add Make commands to README ([f67413b](https://github.com/blackrosesxyz/math-skills/commit/f67413ba4937f5d986270e4883b0b436327d910b))
+* add README badges ([7b58f41](https://github.com/blackrosesxyz/math-skills/commit/7b58f41dc70762fd5f2b9fbaab3b28769d8faa45))
+* fix logo of go-version ([39cc706](https://github.com/blackrosesxyz/math-skills/commit/39cc7065b902d5bac157f158ffec55c6333f3657))
+* update LICENSE ([639e01a](https://github.com/blackrosesxyz/math-skills/commit/639e01ae930a42a37cfaad52bd0466d3f2356eb8))
+
+
+### Fixed
+
+* module path for go report card ([154fb78](https://github.com/blackrosesxyz/math-skills/commit/154fb780bfab9bfe2c1b20c3c8386ef42801d718))
+* remove extra space in output ([dd76772](https://github.com/blackrosesxyz/math-skills/commit/dd7677241a7c42b0849880c87622b72d5881c9f0))
+* update tests to use population variance instead of sample variance ([7c3120d](https://github.com/blackrosesxyz/math-skills/commit/7c3120db5328262a846ee18a2c53b186a33f988a))
+
 ## 1.0.0 (2026-01-09)
 
 
