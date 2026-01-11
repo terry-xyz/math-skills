@@ -50,21 +50,21 @@ func TestCalculateMedian(t *testing.T) {
 	}
 }
 
-func TestCalculateSampleVariance(t *testing.T) {
+func TestCalculateVariance(t *testing.T) {
 	tests := []struct {
 		name     string
 		numbers  []int
 		expected int
 	}{
-		{"simple", []int{2, 4, 4, 4, 5, 5, 7, 9}, 5},
+		{"simple", []int{2, 4, 4, 4, 5, 5, 7, 9}, 4},
 		{"identical", []int{5, 5, 5, 5}, 0},
-		{"two numbers", []int{0, 10}, 50},
+		{"two numbers", []int{0, 10}, 25},
 		{"single", []int{5}, 0},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := calculateSampleVariance(tt.numbers)
+			result := calculateVariance(tt.numbers)
 			if result != tt.expected {
 				t.Errorf("got %d, want %d", result, tt.expected)
 			}
@@ -80,7 +80,7 @@ func TestCalculateStandardDeviation(t *testing.T) {
 	}{
 		{"simple", []int{2, 4, 4, 4, 5, 5, 7, 9}, 2},
 		{"identical", []int{5, 5, 5, 5}, 0},
-		{"two numbers", []int{0, 10}, 7},
+		{"two numbers", []int{0, 10}, 5},
 	}
 
 	for _, tt := range tests {
